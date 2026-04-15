@@ -19,12 +19,11 @@ FetchContent_MakeAvailable(doctest)
 
 add_executable(lab4_sync src/main.cpp)
 
-# add_executable(tests tests/test_marker.cpp)
-# target_include_directories(tests PRIVATE
-#     ${CMAKE_CURRENT_SOURCE_DIR}/include
-#     ${doctest_SOURCE_DIR}
-# )
-# target_link_libraries(tests PRIVATE thread_lib)
+add_executable(tests tests/test_sync.cpp)
+target_include_directories(tests PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+    ${doctest_SOURCE_DIR}
+)
 
-# enable_testing()
-# add_test(NAME ThreadTests COMMAND tests)
+enable_testing()
+add_test(NAME ThreadTests COMMAND tests)
